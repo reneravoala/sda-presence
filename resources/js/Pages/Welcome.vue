@@ -5,6 +5,8 @@ import {
     ClipboardDocumentIcon,
     PlusIcon,
     ChartBarIcon,
+    CalendarIcon,
+    UserPlusIcon,
 } from '@heroicons/vue/24/outline'
 import Logo from "@/Components/Logo.vue";
 
@@ -37,13 +39,27 @@ const actions = [
         iconForeground: 'text-white',
         iconBackground: 'bg-primary',
     },
+    {
+        title: 'Présents aujourd\'hui',
+        href: route('attendance.present-today'),
+        icon: CalendarIcon,
+        iconForeground: 'text-white',
+        iconBackground: 'bg-primary',
+    },
+    {
+        title: 'Nouveaux contacts aujourd\'hui',
+        href: route('attendance.news-today'),
+        icon: UserPlusIcon,
+        iconForeground: 'text-white',
+        iconBackground: 'bg-primary',
+    }
 ]
 </script>
 
 <template>
     <Head title="Welcome"/>
-    <div class="flex flex-col bg-gray-100 w-full h-full p-12">
-        <Logo class="h-28 mx-auto my-12"/>
+    <div class="flex flex-col bg-gray-100 w-full h-full p-6">
+        <Logo class="h-28 mx-auto my-6"/>
         <div
             class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0 my-auto">
             <div v-for="(action, actionIdx) in actions" :key="action.title"

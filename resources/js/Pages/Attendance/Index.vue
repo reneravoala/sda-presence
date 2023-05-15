@@ -56,7 +56,17 @@ const removeAttendance = () => {
                 <h1 class="text-xl font-semibold leading-6 text-gray-900">Présence</h1>
             </div>
             <div class="flex flex-wrap gap-4 mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                <TextInput type="text" v-model="form.search" @input="form.get(route('attendance.index'))" placeholder="Rechercher..."/>
+                <form class="relative mt-1 flex items-center"
+                      @submit.prevent="form.get(route('contacts.index'))">
+                    <input v-model="form.search" type="text" name="search" id="search"
+                           class="block w-full rounded-md border-gray-300 pr-12 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+                           placeholder="Rechercher..."/>
+                    <div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
+                        <button
+                            class="inline-flex items-center rounded px-2 font-sans text-sm font-medium text-gray-400 transition-all hover:text-blue-100">
+                            <MagnifyingGlassIcon class="w-5"/></button>
+                    </div>
+                </form>
                 <TextInput type="date" v-model="form.date" @change="form.get(route('attendance.index'))"/>
                 <Link :href="route('contacts.create')" class="flex block rounded-md bg-primary px-3 py-2 text-center text-base font-semibold text-white shadow-sm hover:bg-primary/95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"><PlusIcon class="w-6"/>Ajouter un contact</Link>
             </div>

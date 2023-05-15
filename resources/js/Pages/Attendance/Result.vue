@@ -3,7 +3,6 @@ import NavBar from "@/Components/NavBar.vue";
 import {useForm} from '@inertiajs/vue3';
 import Pagination from "@/Components/Pagination.vue";
 import TextInput from "@/Components/TextInput.vue";
-import {router} from "@inertiajs/vue3";
 import {MagnifyingGlassIcon} from "@heroicons/vue/24/solid";
 
 const props = defineProps({
@@ -25,11 +24,15 @@ const form = useForm({
     <div class="px-4 sm:px-6 lg:px-8 m-5">
         <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
-                <h1 class="text-xl font-semibold leading-6 text-gray-900">Présence</h1>
+                <h1 class="text-xl font-semibold leading-6 text-gray-900">Résultats</h1>
             </div>
             <div class="flex flex-wrap gap-4 mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+                <a :href="route('attendance.result.download')" target="_blank"
+                        class="rounded-md bg-primary px-3 py-2 text-base font-semibold text-white shadow-sm hover:bg-primary/95 disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                    Télécharger (xls)
+                </a>
                 <form class="relative mt-1 flex items-center"
-                      @submit.prevent="form.get(route('contacts.index'))">
+                      @submit.prevent="form.get(route('attendance.result'))">
                     <input v-model="form.search" type="text" name="search" id="search"
                            class="block w-full rounded-md border-gray-300 pr-12 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
                            placeholder="Rechercher..."/>

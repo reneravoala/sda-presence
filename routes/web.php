@@ -27,18 +27,24 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+Route::get('/contacts/all', [ContactController::class, 'all'])->name('contacts.all');
 Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
 Route::post('/contacts/store', [ContactController::class, 'store'])->name('contacts.store');
 Route::get('/contacts/{contact}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
 Route::post('/contacts/{contact}/update', [ContactController::class, 'update'])->name('contacts.update');
 Route::post('/contacts/{contact}/destroy', [ContactController::class, 'destroy'])->name('contacts.destroy');
 
+Route::get('/contacts/all/download', [ContactController::class, 'downloadAll'])->name('contacts.download');
+
 Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
 Route::post('/attendance/{contact}', [AttendanceController::class, 'setAttendance'])->name('attendance.contact');
 Route::post('/attendance/{contact}/delete', [AttendanceController::class, 'deleteAttendance'])->name('attendance.delete');
 
 Route::get('/result', [AttendanceController::class, 'result'])->name('attendance.result');
+Route::get('/result/download', [AttendanceController::class, 'downloadResult'])->name('attendance.result.download');
 Route::get('/present-today', [AttendanceController::class, 'presentToday'])->name('attendance.present-today');
+Route::get('/present-today/download', [AttendanceController::class, 'downloadPresentToday'])->name('attendance.present-today.download');
+Route::get('/news-today', [AttendanceController::class, 'newsToday'])->name('attendance.news-today');
 //Route::get('/dashboard', function () {
 //    return Inertia::render('Dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');

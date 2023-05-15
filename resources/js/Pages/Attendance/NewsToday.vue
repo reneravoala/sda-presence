@@ -24,15 +24,11 @@ const form = useForm({
     <div class="px-4 sm:px-6 lg:px-8 m-5">
         <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
-                <h1 class="text-xl font-semibold leading-6 text-gray-900">Présents aujourd'hui ({{ total ?? 0 }} au total)</h1>
+                <h1 class="text-xl font-semibold leading-6 text-gray-900">Nouveaux contacts aujourd'hui ({{ total ?? 0 }} au total)</h1>
             </div>
             <div class="flex flex-wrap gap-4 mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                <a :href="route('attendance.present-today.download')" target="_blank"
-                   class="rounded-md bg-primary px-3 py-2 text-base font-semibold text-white shadow-sm hover:bg-primary/95 disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-                    Télécharger (xls)
-                </a>
                 <form class="relative mt-1 flex items-center"
-                      @submit.prevent="form.get(route('attendance.present-today'))">
+                      @submit.prevent="form.get(route('attendance.news-today'))">
                     <input v-model="form.search" type="text" name="search" id="search"
                            class="block w-full rounded-md border-gray-300 pr-12 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
                            placeholder="Rechercher..."/>
@@ -42,7 +38,7 @@ const form = useForm({
                             <MagnifyingGlassIcon class="w-5"/></button>
                     </div>
                 </form>
-                <TextInput type="date" v-model="form.date" @change="form.get(route('attendance.present-today'))"/>
+                <TextInput type="date" v-model="form.date" @change="form.get(route('attendance.news-today'))"/>
             </div>
         </div>
         <div class="mt-8 flow-root">
