@@ -50,7 +50,7 @@ const deleteContact = () => {
 <!--                <TextInput type="text" v-model="form.search" @keyup.enter="form.get(route('contacts.index'))" placeholder="Rechercher..."/>-->
                 <form class="relative mt-1 flex items-center"
                       @submit.prevent="form.get(route('contacts.index'))">
-                    <input v-model="form.search" type="text" name="search" id="search"
+                    <input v-model="form.search" type="text" name="search" id="search" autofocus
                            class="block w-full rounded-md border-gray-300 pr-12 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
                            placeholder="Rechercher..."/>
                     <div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">

@@ -48,6 +48,15 @@ const submit = () => {
                 </div>
                 <h2 class="text-base font-semibold leading-7 text-gray-900">Information personnelle</h2>
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+
+                    <div class="sm:col-span-3">
+                        <label for="last-name" class="block text-base font-medium leading-6 text-gray-900">Nom</label>
+                        <div class="mt-2">
+                            <input type="text" v-model="form.last_name" id="last-name" autocomplete="family-name" autofocus
+                                   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6"/>
+                        </div>
+                        <InputError :message="form.errors.last_name"/>
+                    </div>
                     <div class="sm:col-span-3">
                         <label for="first-name"
                                class="block text-base font-medium leading-6 text-gray-900">Prénom</label>
@@ -55,15 +64,6 @@ const submit = () => {
                             <input type="text" v-model="form.first_name" id="first-name" autocomplete="given-name"
                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6"/>
                         </div>
-                    </div>
-
-                    <div class="sm:col-span-3">
-                        <label for="last-name" class="block text-base font-medium leading-6 text-gray-900">Nom</label>
-                        <div class="mt-2">
-                            <input type="text" v-model="form.last_name" id="last-name" autocomplete="family-name"
-                                   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6"/>
-                        </div>
-                        <InputError :message="form.errors.last_name"/>
                     </div>
 
                     <div class="sm:col-span-4">

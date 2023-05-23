@@ -57,7 +57,7 @@ const removeAttendance = () => {
             <div class="flex flex-wrap gap-4 mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                 <form class="relative mt-1 flex items-center"
                       @submit.prevent="form.get(route('attendance.index'))">
-                    <input v-model="form.search" type="text" name="search" id="search"
+                    <input v-model="form.search" type="text" name="search" id="search" autofocus
                            class="block w-full rounded-md border-gray-300 pr-12 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
                            placeholder="Rechercher..."/>
                     <div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
